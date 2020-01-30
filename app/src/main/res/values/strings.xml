@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">یادداشت</string>
+    <string name="main_search">جستجو</string>
+    <string name="reminder">یادآور</string>
+    <string name="setting">تنظیمات</string>
+
+
+    <!-- Reminder String -->
+    <string name="title_activity_add_reminder">افزودن یاد آور</string>
+    <string name="title_activity_edit_reminder">تغییر یاد آور</string>
+    <string name="add_reminder">یاد آور</string>
+    <string name="details">گزینه ها</string>
+    <string name="date">تاریخ</string>
+    <string name="time">زمان</string>
+    <string name="repeat">تکرار</string>
+    <string name="repeat_off">خاموش</string>
+    <string name="repeat_no"> بازه تکرار</string>
+    <string name="repeat_type">نوع تکرار</string>
+
+    <string name="action_discard_reminder">یاد آور ذخیره نشد</string>
+    <string name="action_save_reminder">یاد آور ذخیره شد</string>
+    <string name="add_new_note">یادداشت جدید...</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="setting_title">تنظیمات</string>
+
+    <string name="exit_message">hhhhhhhhhhhh</string>
+    <string name="str_create_pass">ایجاد رمز برای این یادداشت</string>
+
+    <string name="error_pwd">رمز صحیح را وارد کنید</string>
+
+    <string name="settings">تنظیمات</string>
+    <string name="menu">menu</string>
+    <string name="about">درباره ی من</string>
+    <string name="backup">پشتیبان گیری</string>
+
+</resources>

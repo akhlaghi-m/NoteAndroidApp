@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!-- GRAY Theme -->
+    <color name="primaryColorGray">#9E9E9E</color>
+    <color name="primaryLightColorGray">#F5F5F5</color>
+    <color name="primaryDarkColorGray">#616161</color>
+    <color name="secondaryColorGray">#536DFE</color>
+    <color name="secondaryLightColorGray">#94a5ff</color>
+    <color name="secondaryDarkColorGray">#2c44c9</color>
+    <color name="primaryTextColorGray">#ffffff</color>
+    <color name="secondaryTextColorGray">#000000</color>
+
+
+    <color name="grey_3">#f7f7f7</color>
+    <color name="grey_5">#f2f2f2</color>
+    <color name="grey_10">#e6e6e6</color>
+    <color name="grey_20">#cccccc</color>
+    <color name="grey_40">#999999</color>
+    <color name="grey_60">#666666</color>
+    <color name="grey_80">#37474F</color>
+    <color name="grey_90">#263238</color>
+
+
+    <color name="accent">#78909c</color>
+    <color name="control_normal">#888888</color>
+    <color name="fab_pressed">#546e7a</color>
+
+    <color name="card_color">#443F3F</color>
+    <color name="splitter">#1f000000</color>
+    <color name="bg">#fafafa</color>
+    <color name="ripple_light">#1d000000</color>
+    <color name="main_color">#33ac71</color>
+    <color name="main_color_dark">#247950</color>
+
+    <!-- BROWN Theme -->
+    <color name="primaryColorBrown">#795548</color>
+    <color name="primaryLightColorBrown">#D7CCC8</color>
+    <color name="primaryDarkColorBrown">#5D4037</color>
+    <color name="secondaryColorBrown">#FFC107</color>
+    <color name="secondaryLightColorBrown">#f6c83f</color>
+    <color name="secondaryDarkColorBrown">#cf9c02</color>
+    <color name="primaryTextColorBrown">#ffffff</color>
+    <color name="secondaryTextColorBrown">#000000</color>
+
+</resources>

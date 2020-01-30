@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragments.SettingFragment"
+    android:background="#FFFFFF"
+    android:id="@+id/setting_frameLayout">
+
+
+    <include
+        android:id="@+id/settingFragment_actionbar"
+        layout="@layout/card_view_setting"
+        />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="60dp">
+
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/nested_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:scrollingCache="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/spacing_large">
+
+
+                <android.support.v7.widget.CardView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_medium"
+                    android:layout_marginLeft="@dimen/spacing_middle"
+                    android:layout_marginRight="@dimen/spacing_middle"
+                    android:layout_marginTop="@dimen/spacing_large"
+                    android:visibility="visible"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/LY_theme"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/white"
+                            android:gravity="center_vertical"
+                            android:minHeight="?attr/actionBarSize"
+                            android:orientation="horizontal">
+
+                            <View
+                                android:layout_width="15dp"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:id="@+id/txt_SF_theme"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="تم"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                android:textColor="@color/grey_80" />
+
+                            <ImageButton
+                                android:id="@+id/bt_toggle_text"
+                                android:layout_width="?attr/actionBarSize"
+                                android:layout_height="?attr/actionBarSize"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:tint="@color/grey_80"
+                                android:src="@drawable/ic_arrow" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/lyt_expand_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingRight="10dp"
+                                android:paddingLeft="10dp"
+                                android:paddingTop="5dp"
+                                android:layout_gravity="center">
+
+                                <android.support.v7.widget.SwitchCompat
+                                    android:id="@+id/switch_dark_mode"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingLeft="4dp"
+                                    android:paddingRight="4dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"
+
+                                    />
+
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="حالت شب"
+                                    android:gravity="center"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_alignParentRight="true"
+
+                                    android:padding="16dp"/>
+
+                            </RelativeLayout>
+
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/grey_10" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
+                                android:orientation="horizontal">
+
+
+
+                                <Button
+                                    android:id="@+id/bt_hide_text"
+                                    style="@style/Widget.AppCompat.Button.Borderless"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="مخفی کردن" />
+
+                                <Button
+                                    android:id="@+id/bt_save_theme"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="ذخیره"
+                                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                                    />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_medium"
+                    android:layout_marginLeft="@dimen/spacing_middle"
+                    android:layout_marginRight="@dimen/spacing_middle"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:visibility="visible"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        >
+
+                        <LinearLayout
+                            android:id="@+id/LY_font"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/white"
+                            android:gravity="center_vertical"
+                            android:minHeight="?attr/actionBarSize"
+                            android:orientation="horizontal">
+
+                            <View
+                                android:layout_width="@dimen/spacing_large"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:id="@+id/txt_SF_font"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="فونت"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                android:textColor="@color/grey_80" />
+
+                            <ImageButton
+                                android:id="@+id/bt_toggle_input"
+                                android:layout_width="?attr/actionBarSize"
+                                android:layout_height="?attr/actionBarSize"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:tint="@color/grey_80"
+                                android:src="@drawable/ic_arrow"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/lyt_expand_input"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+
+                            <RadioGroup
+                                android:id="@+id/rg_changFont"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/spacing_large"
+                                android:layout_marginTop="@dimen/spacing_medium">
+
+                                <RadioButton
+                                    android:id="@+id/B_NAZANIN"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="B-NAZANIN.TTF"
+                                    android:textSize="16sp"
+                                   />
+                                <RadioButton
+                                    android:id="@+id/B_Yekan"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+
+                                    android:text="B_Yekan+Bold.TTF"
+                                    android:textSize="16sp"
+                                    />
+
+                            </RadioGroup>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/grey_10" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
+                                android:orientation="horizontal">
+
+                                <Button
+                                    android:id="@+id/bt_hide_input"
+                                    style="@style/Widget.AppCompat.Button.Borderless"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="مخفی کردن"
+                                    />
+
+                                <Button
+                                    android:id="@+id/bt_save_input"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="ذخیره"
+                                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                                    />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_medium"
+                    android:layout_marginLeft="@dimen/spacing_middle"
+                    android:layout_marginRight="@dimen/spacing_middle"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:visibility="visible"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        >
+
+                        <LinearLayout
+                            android:id="@+id/LY_pass"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/white"
+                            android:gravity="center_vertical"
+                            android:minHeight="?attr/actionBarSize"
+                            android:orientation="horizontal">
+
+                            <View
+                                android:layout_width="@dimen/spacing_large"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:id="@+id/txt_SF_pass"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="ایجاد رمز"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                android:textColor="@color/grey_80" />
+
+                            <ImageButton
+                                android:id="@+id/bt_toggle_pass"
+                                android:layout_width="?attr/actionBarSize"
+                                android:layout_height="?attr/actionBarSize"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:tint="@color/grey_80"
+                                android:src="@drawable/ic_arrow"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/lyt_expand_pass"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:id="@+id/non_pass"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:orientation="horizontal"
+                                android:paddingBottom="8dp"
+                                android:paddingLeft="1dp"
+                                android:paddingRight="1dp"
+                                android:paddingTop="8dp"
+                                android:gravity="right">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="بدون رمز"
+                                    android:textSize="16sp"
+                                    android:layout_marginRight="20dp"
+                                    android:textColor="@color/colorPrimary"
+                                    />
+
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:id="@+id/pin_pass"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:orientation="horizontal"
+                                android:paddingBottom="8dp"
+                                android:paddingLeft="1dp"
+                                android:paddingRight="1dp"
+                                android:paddingTop="8dp"
+                                android:gravity="right">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="پین"
+                                    android:textSize="16sp"
+                                    android:layout_marginRight="20dp"
+                                    android:textColor="@color/colorPrimary"
+                                    />
+
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:id="@+id/pattern_pass"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:orientation="horizontal"
+                                android:paddingBottom="8dp"
+                                android:paddingLeft="1dp"
+                                android:paddingRight="1dp"
+                                android:paddingTop="8dp"
+                                android:gravity="right">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="رسم الگو"
+                                    android:textSize="16sp"
+                                    android:layout_marginRight="20dp"
+                                    android:textColor="@color/colorPrimary"
+                                    />
+
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:id="@+id/finger_pass"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:orientation="horizontal"
+                                android:paddingBottom="8dp"
+                                android:paddingLeft="1dp"
+                                android:paddingRight="1dp"
+                                android:paddingTop="8dp"
+                                android:gravity="right">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="اثر انگشت"
+                                    android:textSize="16sp"
+                                    android:layout_marginRight="20dp"
+                                    android:textColor="@color/colorPrimary"
+                                    />
+
+
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/grey_10" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
+                                android:orientation="horizontal">
+
+                                <Button
+                                    android:id="@+id/bt_hide_pass"
+                                    style="@style/Widget.AppCompat.Button.Borderless"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="مخفی کردن"
+                                    />
+
+                                <Button
+                                    android:id="@+id/bt_save_pass"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="ذخیره"
+                                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                                    />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+
+    </LinearLayout>
+
+
+
+</FrameLayout>

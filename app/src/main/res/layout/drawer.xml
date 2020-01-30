@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/drawer_holder"
+    android:layout_width="270dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="right"
+    android:background="@drawable/drawer_wite">
+
+<RelativeLayout
+    android:id="@+id/linear_draw"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    >
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/material_bg_1"
+        app:civ_shadow="true"
+        app:civ_shadow_radius="0"
+        app:civ_border="true"
+        app:civ_border_color="@color/grey_60"
+        app:civ_border_width="2dp"
+        android:layout_centerVertical="true"
+       android:layout_marginStart="120dp"
+        android:layout_marginLeft="120dp" />
+
+
+</RelativeLayout>
+    <ListView
+        android:id="@+id/drawer_list"
+        android:layout_below="@+id/linear_draw"
+        android:layout_above="@+id/settings_btn"
+        android:layout_width="270dp"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:choiceMode="none"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        />
+
+    <RelativeLayout
+        android:id="@+id/settings_btn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:clickable="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/ripple_rect" >
+
+        <include layout="@layout/splitter" />
+
+        <ImageView
+            android:id="@+id/drawer_img_setting"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerVertical="true"
+            android:scaleType="center"
+            android:src="@drawable/ic_settings"
+            android:contentDescription="@string/settings"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="18dp"
+            android:layout_marginLeft="18dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="14sp"
+            android:text="@string/settings"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:layout_toLeftOf="@+id/drawer_img_setting"
+            android:layout_toStartOf="@+id/drawer_img_setting" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

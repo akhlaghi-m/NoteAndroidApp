@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="themeOne" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/main_color</item>
+        <item name="colorPrimaryDark">@color/bg</item>
+        <item name="colorAccent">@color/secondaryColorGray</item>
+        <item name="actionModeBackground">@color/primaryColorGray</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">#FFFFFF</item>
+
+    </style>
+</resources>

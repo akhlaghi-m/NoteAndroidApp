@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+
+    <LinearLayout
+        android:id="@+id/addPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="8dp"
+        android:gravity="right">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/str_create_pass"
+            android:textSize="16sp"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/colorPrimary"
+            />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_lock_outline"
+            android:tint="#737373"
+            android:layout_marginRight="10dp"
+            />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/addFontSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:orientation="vertical"
+        android:paddingBottom="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="8dp"
+        android:gravity="right">
+
+        <android.support.v7.widget.AppCompatSeekBar
+            android:id="@+id/seekBar_fontSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:max="30"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/textView_fontSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="این یک متن از مایشی میباشد"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+</LinearLayout>

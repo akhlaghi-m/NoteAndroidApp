@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activitys.NoteAddActivity">
+
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+
+        <include
+            android:id="@+id/noteActivity_add_bar"
+            layout="@layout/toolbar_add_note_activity"
+            />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+
+            <RelativeLayout
+                android:id="@+id/layout_background"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:orientation="vertical">
+
+
+
+                        <include
+                            layout="@layout/card_view_create_pass"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <include
+                            layout="@layout/card_view_audio_recorder"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+
+                        <ImageView
+                            android:scaleType="centerCrop"
+                            android:id="@+id/noteActivity_imageView"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/Ed_Memo"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:hint="یادداشت..."
+                                android:background="@android:color/transparent"
+                                android:layout_marginTop="15dp"
+                                android:paddingBottom="20dp"
+                                android:textSize="16sp"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:clickable="false"
+                                android:scrollHorizontally="false"
+                                android:scrollbarAlwaysDrawVerticalTrack="true"
+
+                                />
+                            <TextView
+                                android:id="@+id/txtShow_memo"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:hint="یادداشت..."
+                                android:background="@android:color/transparent"
+                                android:layout_marginTop="15dp"
+                                android:paddingBottom="20dp"
+                                android:textSize="16sp"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:clickable="false"
+                                android:textStyle="bold"
+                                android:visibility="gone"/>
+
+
+
+                        </RelativeLayout>
+                    </LinearLayout>
+                </ScrollView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/bg_gradient_soft" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/bottomSheet_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btn_addBax"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:tint="@color/grey_60"
+                    android:src="@drawable/ic_add"
+                    android:onClick="onClick_addBottomSheetDialog"/>
+
+                <LinearLayout
+                    android:id="@+id/layoutDots"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:id="@+id/text_Time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20:59"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/btn_more"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:tint="@color/grey_60"
+                    android:src="@drawable/ic_more_vert"
+                    android:onClick="onClick_morBottomSheetDialog"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/drawingFragment_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foregroundGravity="top" />
+</RelativeLayout>
