@@ -10,8 +10,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
+import java.io.File;
 import java.util.List;
 
+import roid.berlin.memoapp.android.co.Activitys.MainActivity;
 import roid.berlin.memoapp.android.co.Database.Note;
 import roid.berlin.memoapp.android.co.R;
 import roid.berlin.memoapp.android.co.Utils.AppUtils;
@@ -20,9 +24,11 @@ import roid.berlin.memoapp.android.co.Utils.NoteDiffUtil;
 public class Adapter extends RecyclerView.Adapter<Adapter.NoteViewHolder> {
 
 
+    private MainActivity mainActivity;
     private List<Note> notes;
 
-    public Adapter(List<Note> notes) {
+    public Adapter(MainActivity mainActivity, List<Note> notes) {
+        this.mainActivity = mainActivity;
         this.notes = notes;
     }
 
@@ -40,22 +46,18 @@ public class Adapter extends RecyclerView.Adapter<Adapter.NoteViewHolder> {
 
         Note note = getItem(position);
 
-
-
         holder.itemTitle.setText(note.getTitle());
-        holder.itemDescription.setText(note.getDescription());
         holder.itemTime.setText(AppUtils.getFormattedDateString(note.getCreatedAt()));
-
 
         if(note.isEncrypt()) {
             holder.itemTime.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.ic_lock_outline, 0);
-
             holder.itemDescription.setText("یادداشت محافظت شده");
-
-
         } else {
             holder.itemTime.setCompoundDrawablesWithIntrinsicBounds(0,0, 0, 0);
+            holder.itemDescription.setText(note.getDescription());
         }
+
+        Glide.with(mainActivity).load(new File(note.getImagePath())).into(holder.itemImage);
     }
 
     @Override

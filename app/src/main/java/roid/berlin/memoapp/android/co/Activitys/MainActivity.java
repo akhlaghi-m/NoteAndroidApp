@@ -347,7 +347,7 @@ public class MainActivity extends AppCompatActivity
                 if (notes.size() > 0) {
                     recyclerView.setVisibility(View.VISIBLE);
                     if (notesListAdapter == null) {
-                        notesListAdapter = new Adapter(notes);
+                        notesListAdapter = new Adapter(MainActivity.this,notes);
                         recyclerView.setAdapter(notesListAdapter);
 
                     } else notesListAdapter.addTasks(notes);
