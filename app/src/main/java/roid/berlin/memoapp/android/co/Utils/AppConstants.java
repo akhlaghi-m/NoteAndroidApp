@@ -1,7 +1,6 @@
 package roid.berlin.memoapp.android.co.Utils;
 
 
-
 public interface AppConstants {
 
     String INTENT_TITLE = "intent_title";

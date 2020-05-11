@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:paddingTop="8dp"
     android:paddingBottom="8dp">
@@ -15,32 +14,29 @@
         android:clickable="true"
         android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
+        android:gravity="right"
         android:orientation="horizontal"
-        android:paddingBottom="8dp"
         android:paddingLeft="8dp"
-        android:paddingRight="8dp"
         android:paddingTop="8dp"
-        android:gravity="right">
-
+        android:paddingRight="8dp"
+        android:paddingBottom="8dp">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="@string/str_create_pass"
-            android:textSize="16sp"
             android:layout_marginRight="20dp"
+            android:text="@string/str_create_pass"
             android:textColor="@color/colorPrimary"
-            />
+            android:textSize="16sp" />
 
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_lock_outline"
-            android:tint="#737373"
             android:layout_marginRight="10dp"
-            />
+            android:src="@drawable/ic_lock_outline"
+            android:tint="#737373" />
 
 
     </LinearLayout>
@@ -53,26 +49,26 @@
         android:clickable="true"
         android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
+        android:gravity="right"
         android:orientation="vertical"
-        android:paddingBottom="8dp"
         android:paddingLeft="8dp"
-        android:paddingRight="8dp"
         android:paddingTop="8dp"
-        android:gravity="right">
+        android:paddingRight="8dp"
+        android:paddingBottom="8dp">
 
-        <android.support.v7.widget.AppCompatSeekBar
+        <androidx.appcompat.widget.AppCompatSeekBar
             android:id="@+id/seekBar_fontSize"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:max="30"/>
+            android:max="30" />
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textView_fontSize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="این یک متن از مایشی میباشد"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:text="این یک متن از مایشی میباشد" />
     </LinearLayout>
 
 </LinearLayout>

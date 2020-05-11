@@ -1,28 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_reminder"
-            android:title="هشدار"
-            />
+            android:title="هشدار" />
         <item
             android:id="@+id/nav_setting"
 
-            android:title="تنظیمات"
-            />
+            android:title="تنظیمات" />
 
         <item
             android:id="@+id/signIn"
-            android:title="ورود با حساب گوگل"/>
+            android:title="ورود با حساب گوگل" />
     </group>
 
     <item android:title="درباره ی ما">
         <menu>
             <item
                 android:id="@+id/nav_privacy_policy"
-                android:title="akhlaghim01@gmail.com"
-                />
+                android:title="akhlaghim01@gmail.com" />
         </menu>
     </item>
 </menu>

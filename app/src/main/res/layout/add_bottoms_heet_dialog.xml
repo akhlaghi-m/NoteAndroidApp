@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/addBottomSheetLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingTop="8dp"
-    android:paddingBottom="8dp"
-    android:id="@+id/addBottomSheetLayout">
+    android:paddingBottom="8dp">
 
     <LinearLayout
         android:id="@+id/addPhoto"
@@ -15,30 +14,28 @@
         android:clickable="true"
         android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
+        android:gravity="right"
         android:orientation="horizontal"
-        android:paddingBottom="8dp"
         android:paddingLeft="1dp"
-        android:paddingRight="1dp"
         android:paddingTop="8dp"
-        android:gravity="right">
+        android:paddingRight="1dp"
+        android:paddingBottom="8dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="گرفتن عکس"
-            android:textSize="16sp"
             android:layout_marginRight="20dp"
+            android:text="گرفتن عکس"
             android:textColor="@color/colorPrimary"
-            />
+            android:textSize="16sp" />
 
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_photo_camera"
-            android:tint="#737373"
             android:layout_marginRight="10dp"
-            />
+            android:src="@drawable/ic_photo_camera"
+            android:tint="#737373" />
 
 
     </LinearLayout>
@@ -49,23 +46,22 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:foreground="?attr/selectableItemBackground"
+        android:gravity="right"
         android:orientation="horizontal"
-        android:paddingBottom="8dp"
         android:paddingLeft="1dp"
-        android:paddingRight="1dp"
         android:paddingTop="8dp"
-        android:gravity="right">
+        android:paddingRight="1dp"
+        android:paddingBottom="8dp">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="انتخاب عکس"
-            android:textSize="16sp"
             android:layout_marginRight="20dp"
+            android:text="انتخاب عکس"
             android:textColor="@color/colorPrimary"
-            />
+            android:textSize="16sp" />
 
         <ImageView
             android:layout_width="24dp"
@@ -82,31 +78,29 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:foreground="?attr/selectableItemBackground"
+        android:gravity="right"
         android:orientation="horizontal"
-        android:paddingBottom="8dp"
         android:paddingLeft="1dp"
-        android:paddingRight="1dp"
         android:paddingTop="8dp"
-        android:gravity="right">
+        android:paddingRight="1dp"
+        android:paddingBottom="8dp">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="نقاشی"
-            android:textSize="16sp"
             android:layout_marginRight="20dp"
+            android:text="نقاشی"
             android:textColor="@color/colorPrimary"
-            />
+            android:textSize="16sp" />
 
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginRight="10dp"
             android:src="@drawable/ic_mode_edit"
-            android:tint="#737373"
-            />
+            android:tint="#737373" />
 
     </LinearLayout>
 
@@ -116,23 +110,23 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:foreground="?attr/selectableItemBackground"
+        android:gravity="end"
         android:orientation="horizontal"
-        android:paddingBottom="8dp"
         android:paddingLeft="1dp"
-        android:paddingRight="1dp"
         android:paddingTop="8dp"
-        android:gravity="end">
+        android:paddingRight="1dp"
+        android:paddingBottom="8dp">
 
         <TextView
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:layout_marginRight="20dp"
             android:text="ظبط صدا"
-            android:textSize="16sp"
             android:textColor="@color/colorPrimary"
 
-            android:layout_marginRight="20dp"/>
+            android:textSize="16sp" />
 
         <ImageView
             android:layout_width="24dp"

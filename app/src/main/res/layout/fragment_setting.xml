@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/setting_frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragments.SettingFragment"
     android:background="#FFFFFF"
-    android:id="@+id/setting_frameLayout">
+    tools:context=".Fragments.SettingFragment">
 
 
     <include
         android:id="@+id/settingFragment_actionbar"
-        layout="@layout/card_view_setting"
-        />
-
+        layout="@layout/card_view_setting" />
 
 
     <LinearLayout
@@ -23,7 +21,7 @@
         android:paddingTop="60dp">
 
 
-        <android.support.v4.widget.NestedScrollView
+        <androidx.core.widget.NestedScrollView
             android:id="@+id/nested_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -37,14 +35,14 @@
                 android:paddingTop="@dimen/spacing_large">
 
 
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/spacing_medium"
                     android:layout_marginLeft="@dimen/spacing_middle"
-                    android:layout_marginRight="@dimen/spacing_middle"
                     android:layout_marginTop="@dimen/spacing_large"
+                    android:layout_marginRight="@dimen/spacing_middle"
+                    android:layout_marginBottom="@dimen/spacing_medium"
                     android:visibility="visible"
                     app:cardCornerRadius="2dp"
                     app:cardElevation="2dp">
@@ -82,8 +80,8 @@
                                 android:layout_width="?attr/actionBarSize"
                                 android:layout_height="?attr/actionBarSize"
                                 android:background="?attr/selectableItemBackgroundBorderless"
-                                android:tint="@color/grey_80"
-                                android:src="@drawable/ic_arrow" />
+                                android:src="@drawable/ic_arrow"
+                                android:tint="@color/grey_80" />
 
                         </LinearLayout>
 
@@ -97,20 +95,20 @@
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="center"
                                 android:orientation="horizontal"
-                                android:paddingRight="10dp"
                                 android:paddingLeft="10dp"
                                 android:paddingTop="5dp"
-                                android:layout_gravity="center">
+                                android:paddingRight="10dp">
 
-                                <android.support.v7.widget.SwitchCompat
+                                <androidx.appcompat.widget.SwitchCompat
                                     android:id="@+id/switch_dark_mode"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:gravity="center"
                                     android:paddingLeft="4dp"
                                     android:paddingRight="4dp"
-                                    android:gravity="center"
-                                    android:layout_centerVertical="true"
 
                                     />
 
@@ -118,12 +116,12 @@
 
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="حالت شب"
-                                    android:gravity="center"
                                     android:layout_alignParentEnd="true"
                                     android:layout_alignParentRight="true"
+                                    android:gravity="center"
+                                    android:padding="16dp"
 
-                                    android:padding="16dp"/>
+                                    android:text="حالت شب" />
 
                             </RelativeLayout>
 
@@ -140,7 +138,6 @@
                                 android:orientation="horizontal">
 
 
-
                                 <Button
                                     android:id="@+id/bt_hide_text"
                                     style="@style/Widget.AppCompat.Button.Borderless"
@@ -151,27 +148,26 @@
 
                                 <Button
                                     android:id="@+id/bt_save_theme"
+                                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="ذخیره"
-                                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                                    />
+                                    android:text="ذخیره" />
 
                             </LinearLayout>
 
                         </LinearLayout>
 
                     </LinearLayout>
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/spacing_medium"
                     android:layout_marginLeft="@dimen/spacing_middle"
-                    android:layout_marginRight="@dimen/spacing_middle"
                     android:layout_marginTop="@dimen/spacing_medium"
+                    android:layout_marginRight="@dimen/spacing_middle"
+                    android:layout_marginBottom="@dimen/spacing_medium"
                     android:visibility="visible"
                     app:cardCornerRadius="2dp"
                     app:cardElevation="2dp">
@@ -179,8 +175,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        >
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:id="@+id/LY_font"
@@ -209,9 +204,8 @@
                                 android:layout_width="?attr/actionBarSize"
                                 android:layout_height="?attr/actionBarSize"
                                 android:background="?attr/selectableItemBackgroundBorderless"
-                                android:tint="@color/grey_80"
                                 android:src="@drawable/ic_arrow"
-                                />
+                                android:tint="@color/grey_80" />
 
                         </LinearLayout>
 
@@ -234,16 +228,15 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="B-NAZANIN.TTF"
-                                    android:textSize="16sp"
-                                   />
+                                    android:textSize="16sp" />
+
                                 <RadioButton
                                     android:id="@+id/B_Yekan"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
 
                                     android:text="B_Yekan+Bold.TTF"
-                                    android:textSize="16sp"
-                                    />
+                                    android:textSize="16sp" />
 
                             </RadioGroup>
 
@@ -264,17 +257,15 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="مخفی کردن"
-                                    />
+                                    android:text="مخفی کردن" />
 
                                 <Button
                                     android:id="@+id/bt_save_input"
+                                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="ذخیره"
-                                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                                    />
+                                    android:text="ذخیره" />
 
                             </LinearLayout>
 
@@ -282,17 +273,16 @@
 
                     </LinearLayout>
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
 
-
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/spacing_medium"
                     android:layout_marginLeft="@dimen/spacing_middle"
-                    android:layout_marginRight="@dimen/spacing_middle"
                     android:layout_marginTop="@dimen/spacing_medium"
+                    android:layout_marginRight="@dimen/spacing_middle"
+                    android:layout_marginBottom="@dimen/spacing_medium"
                     android:visibility="visible"
                     app:cardCornerRadius="2dp"
                     app:cardElevation="2dp">
@@ -300,8 +290,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        >
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:id="@+id/LY_pass"
@@ -330,9 +319,8 @@
                                 android:layout_width="?attr/actionBarSize"
                                 android:layout_height="?attr/actionBarSize"
                                 android:background="?attr/selectableItemBackgroundBorderless"
-                                android:tint="@color/grey_80"
                                 android:src="@drawable/ic_arrow"
-                                />
+                                android:tint="@color/grey_80" />
 
                         </LinearLayout>
 
@@ -349,22 +337,21 @@
                                 android:clickable="true"
                                 android:focusable="true"
                                 android:foreground="?attr/selectableItemBackground"
+                                android:gravity="right"
                                 android:orientation="horizontal"
-                                android:paddingBottom="8dp"
                                 android:paddingLeft="1dp"
-                                android:paddingRight="1dp"
                                 android:paddingTop="8dp"
-                                android:gravity="right">
+                                android:paddingRight="1dp"
+                                android:paddingBottom="8dp">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
-                                    android:text="بدون رمز"
-                                    android:textSize="16sp"
                                     android:layout_marginRight="20dp"
+                                    android:text="بدون رمز"
                                     android:textColor="@color/colorPrimary"
-                                    />
+                                    android:textSize="16sp" />
 
 
                             </LinearLayout>
@@ -377,22 +364,21 @@
                                 android:clickable="true"
                                 android:focusable="true"
                                 android:foreground="?attr/selectableItemBackground"
+                                android:gravity="right"
                                 android:orientation="horizontal"
-                                android:paddingBottom="8dp"
                                 android:paddingLeft="1dp"
-                                android:paddingRight="1dp"
                                 android:paddingTop="8dp"
-                                android:gravity="right">
+                                android:paddingRight="1dp"
+                                android:paddingBottom="8dp">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
-                                    android:text="پین"
-                                    android:textSize="16sp"
                                     android:layout_marginRight="20dp"
+                                    android:text="پین"
                                     android:textColor="@color/colorPrimary"
-                                    />
+                                    android:textSize="16sp" />
 
 
                             </LinearLayout>
@@ -405,22 +391,21 @@
                                 android:clickable="true"
                                 android:focusable="true"
                                 android:foreground="?attr/selectableItemBackground"
+                                android:gravity="right"
                                 android:orientation="horizontal"
-                                android:paddingBottom="8dp"
                                 android:paddingLeft="1dp"
-                                android:paddingRight="1dp"
                                 android:paddingTop="8dp"
-                                android:gravity="right">
+                                android:paddingRight="1dp"
+                                android:paddingBottom="8dp">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
-                                    android:text="رسم الگو"
-                                    android:textSize="16sp"
                                     android:layout_marginRight="20dp"
+                                    android:text="رسم الگو"
                                     android:textColor="@color/colorPrimary"
-                                    />
+                                    android:textSize="16sp" />
 
 
                             </LinearLayout>
@@ -433,22 +418,21 @@
                                 android:clickable="true"
                                 android:focusable="true"
                                 android:foreground="?attr/selectableItemBackground"
+                                android:gravity="right"
                                 android:orientation="horizontal"
-                                android:paddingBottom="8dp"
                                 android:paddingLeft="1dp"
-                                android:paddingRight="1dp"
                                 android:paddingTop="8dp"
-                                android:gravity="right">
+                                android:paddingRight="1dp"
+                                android:paddingBottom="8dp">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
-                                    android:text="اثر انگشت"
-                                    android:textSize="16sp"
                                     android:layout_marginRight="20dp"
+                                    android:text="اثر انگشت"
                                     android:textColor="@color/colorPrimary"
-                                    />
+                                    android:textSize="16sp" />
 
 
                             </LinearLayout>
@@ -470,17 +454,15 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="مخفی کردن"
-                                    />
+                                    android:text="مخفی کردن" />
 
                                 <Button
                                     android:id="@+id/bt_save_pass"
+                                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="ذخیره"
-                                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                                    />
+                                    android:text="ذخیره" />
 
                             </LinearLayout>
 
@@ -488,15 +470,14 @@
 
                     </LinearLayout>
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
             </LinearLayout>
 
-        </android.support.v4.widget.NestedScrollView>
+        </androidx.core.widget.NestedScrollView>
 
 
     </LinearLayout>
-
 
 
 </FrameLayout>

@@ -7,31 +7,31 @@
     android:orientation="vertical"
     tools:context=".Activitys.PatternLockActivity">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_marginTop="50dp">
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="لطفا یک الگو را رسم کنید
-سپس برای ذخیره الگو روی دکمه زیر بزنید"
-         android:layout_gravity="center"
-        android:gravity="center"/>
+        android:layout_marginTop="50dp"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_set_pattern"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="ذخیره الگو"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/toolbar_dropshadow"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="لطفا یک الگو را رسم کنید
+سپس برای ذخیره الگو روی دکمه زیر بزنید" />
+
+        <Button
+            android:id="@+id/btn_set_pattern"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/toolbar_dropshadow"
+            android:text="ذخیره الگو" />
 
 
-</LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -2,26 +2,12 @@ package roid.berlin.memoapp.android.co.Activitys;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.arch.lifecycle.Observer;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.support.v7.widget.Toolbar;
+import android.os.Handler;
 import android.text.method.PasswordTransformationMethod;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,12 +23,24 @@ import android.widget.Toast;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.bignerdranch.android.multiselector.MultiSelector;
-
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.lang.reflect.Field;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import roid.berlin.memoapp.android.co.Adapters.Adapter;
 import roid.berlin.memoapp.android.co.Adapters.DrawerAdapter;
 import roid.berlin.memoapp.android.co.Database.Note;
@@ -63,19 +61,19 @@ public class MainActivity extends AppCompatActivity
         RecyclerItemClickListener.OnRecyclerViewItemClickListener,
         AppConstants {
 
-    private RecyclerView recyclerView;
-    private Adapter notesListAdapter;
-    NoteRepository noteRepository;
     final Context context = this;
+    public Handler handler = new Handler();
+    public View drawerHolder;
+    NoteRepository noteRepository;
     Note note;
-    private boolean pwdVisible;
-
     Animation anim;
     CardView cardViewSearchBar, cardViewMenuBar;
     DrawerLayout drawer;
     EditText main_editText_search;
     BottomNavigationView bottomNavigation;
-
+    private RecyclerView recyclerView;
+    private Adapter notesListAdapter;
+    private boolean pwdVisible;
     //Reminder
     private RecyclerView mList;
     private Toolbar mToolbar;
@@ -85,29 +83,22 @@ public class MainActivity extends AppCompatActivity
     private ReminderDatabase rb;
     private MultiSelector mMultiSelector = new MultiSelector();
     private AlarmReceiver mAlarmReceiver;
-
     //drawer
     private DrawerLayout drawerLayout;
-    public Handler handler = new Handler();
+    private boolean exitStatus = false;
     public Runnable runnable = new Runnable() {
         @Override
-        public void run() {
+        public void run()
+        {
             exitStatus = false;
         }
     };
-    public View drawerHolder;
-    private boolean exitStatus = false;
-
     private SettingFragment settingFragment;
 
 
-
-
-
-
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -121,7 +112,6 @@ public class MainActivity extends AppCompatActivity
         //initNavigationMenu();
         setupDrawer();
         initViews();
-
 
 
         noteRepository = new NoteRepository(getApplicationContext());
@@ -138,7 +128,8 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    private void initToolbar() {
+    private void initToolbar()
+    {
         ActionBar actionBar;
         Toolbar toolbar;
         toolbar = findViewById(R.id.toolbar);
@@ -147,18 +138,20 @@ public class MainActivity extends AppCompatActivity
         actionBar.setTitle("");
     }
 
-    private void setupDrawer() {
+    private void setupDrawer()
+    {
         // Set date in drawer
-      // ((TextView) findViewById(R.id.drawer_date)).setText(AppUtils.getFormattedDateString(AppUtils.getCurrentDateTime()));
+        // ((TextView) findViewById(R.id.drawer_date)).setText(AppUtils.getFormattedDateString(AppUtils.getCurrentDateTime()));
 
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerLayout = findViewById(R.id.drawer_layout);
         drawerHolder = findViewById(R.id.drawer_holder);
-        ListView drawerList = (ListView) findViewById(R.id.drawer_list);
+        ListView drawerList = findViewById(R.id.drawer_list);
 
         // Navigation menu button
         findViewById(R.id.nav_btn).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 drawerLayout.openDrawer(GravityCompat.END);
             }
         });
@@ -166,7 +159,8 @@ public class MainActivity extends AppCompatActivity
         // Settings button
         findViewById(R.id.settings_btn).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 onClickDrawer(Drawer.TYPE_SETTINGS);
             }
         });
@@ -176,7 +170,8 @@ public class MainActivity extends AppCompatActivity
                 getApplicationContext(),
                 new DrawerAdapter.ClickListener() {
                     @Override
-                    public void onClick(int type) {
+                    public void onClick(int type)
+                    {
                         onClickDrawer(type);
                     }
                 }
@@ -184,24 +179,33 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    private void onClickDrawer(final int type) {
+    private void onClickDrawer(final int type)
+    {
         drawerLayout.closeDrawers();
 
-        try {
+        try
+        {
             handler.removeCallbacks(runnable);
-        } catch (Exception ignored) {}
+        }
+        catch (Exception ignored)
+        {
+        }
 
         new Thread() {
             @Override
-            public void run() {
-                try {
+            public void run()
+            {
+                try
+                {
                     // wait for completion of drawer animation
                     sleep(500);
 
                     runOnUiThread(new Runnable() {
                         @Override
-                        public void run() {
-                            switch (type) {
+                        public void run()
+                        {
+                            switch (type)
+                            {
                                 case Drawer.TYPE_ABOUT:
                                     new MaterialDialog.Builder(MainActivity.this)
                                             .title(R.string.app_name)
@@ -209,7 +213,8 @@ public class MainActivity extends AppCompatActivity
                                             .positiveText("ok")
                                             .onPositive(new MaterialDialog.SingleButtonCallback() {
                                                 @Override
-                                                public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                                public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which)
+                                                {
                                                     dialog.dismiss();
                                                 }
                                             })
@@ -220,33 +225,38 @@ public class MainActivity extends AppCompatActivity
                                     startActivity(intent);
                                     break;
                                 case Drawer.TYPE_RESTORE:
-                                    Toast.makeText(MainActivity.this,"restoreData()",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MainActivity.this, "restoreData()", Toast.LENGTH_SHORT).show();
 
                                     break;
                                 case Drawer.TYPE_SETTINGS:
                                     SettingFragment settingFragment = new SettingFragment();
-                       FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.settingFragment_frame, settingFragment);
-                        fragmentTransaction.addToBackStack(null);fragmentTransaction.commit();
+                                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                                    fragmentTransaction.replace(R.id.settingFragment_frame, settingFragment);
+                                    fragmentTransaction.addToBackStack(null);
+                                    fragmentTransaction.commit();
                                     break;
                             }
                         }
                     });
 
                     interrupt();
-                } catch (Exception ignored) {
+                }
+                catch (Exception ignored)
+                {
                 }
             }
         }.start();
     }
 
-    private void initViews() {
+    private void initViews()
+    {
         ImageButton main_btn_search;
         main_btn_search = findViewById(R.id.main_btn_search);
         cardViewSearchBar.setVisibility(View.GONE);
         main_btn_search.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 Animation anim;
                 anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animation_one);
                 cardViewSearchBar.setAnimation(anim);
@@ -260,9 +270,11 @@ public class MainActivity extends AppCompatActivity
 
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed()
+    {
 
-        if (cardViewMenuBar.getVisibility() == View.GONE) {
+        if (cardViewMenuBar.getVisibility() == View.GONE)
+        {
 
             anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animation_one);
             cardViewMenuBar.setAnimation(anim);
@@ -273,7 +285,8 @@ public class MainActivity extends AppCompatActivity
 
         }
 
-        if (drawerLayout.isDrawerOpen(drawerHolder)) {
+        if (drawerLayout.isDrawerOpen(drawerHolder))
+        {
             drawerLayout.closeDrawers();
             return;
         }
@@ -281,15 +294,19 @@ public class MainActivity extends AppCompatActivity
         super.onBackPressed();
     }
 
-    public void cardViewSearchOnClick(View view) {
+    public void cardViewSearchOnClick(View view)
+    {
 
         int id = view.getId();
 
-        if (id == R.id.main_btn_clear) {
+        if (id == R.id.main_btn_clear)
+        {
 
             main_editText_search.setText("");
 
-        } else if (id == R.id.main_btn_back) {
+        }
+        else if (id == R.id.main_btn_back)
+        {
 
             anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animation_two);
             cardViewSearchBar.setAnimation(anim);
@@ -304,54 +321,74 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    public void onClick_toAddNoteActivity(View view) {
+    public void onClick_toAddNoteActivity(View view)
+    {
 
         Intent intent = new Intent(MainActivity.this, NoteAddActivity.class);
         startActivityForResult(intent, ACTIVITY_REQUEST_CODE);
     }
 
 
+    public void customeFont(Context context, String defultfontName, String customeFontFileName)
+    {
 
-    public void customeFont(Context context, String defultfontName, String customeFontFileName) {
-
-        try {
+        try
+        {
             Typeface typeface = Typeface.createFromAsset(context.getAssets(), customeFontFileName);
             Field defultFontTypeFace = Typeface.class.getDeclaredField(defultfontName);
             defultFontTypeFace.setAccessible(true);
             defultFontTypeFace.set(null, typeface);
 
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             Toast.makeText(this, "ccc", Toast.LENGTH_SHORT).show();
         }
 
     }
 
-    public void customeFontTwo(Context context, String defultFontNameTwo, String customeFontFieldNameTwo) {
+    public void customeFontTwo(Context context, String defultFontNameTwo, String customeFontFieldNameTwo)
+    {
 
-        try {
+        try
+        {
             Typeface typefaceTwo = Typeface.createFromAsset(context.getAssets(), customeFontFieldNameTwo);
             Field defultFontTypeFaceTwo = Typeface.class.getDeclaredField(defultFontNameTwo);
             defultFontTypeFaceTwo.setAccessible(true);
             defultFontTypeFaceTwo.set(null, typefaceTwo);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             Toast.makeText(this, "ccc", Toast.LENGTH_SHORT).show();
 
         }
     }
 
 
-    private void updateTaskList() {
+    private void updateTaskList()
+    {
         noteRepository.getTasks().observe(this, new Observer<List<Note>>() {
             @Override
-            public void onChanged(@Nullable List<Note> notes) {
-                if (notes.size() > 0) {
+            public void onChanged(@Nullable List<Note> notes)
+            {
+                if (notes.size() > 0)
+                {
                     recyclerView.setVisibility(View.VISIBLE);
-                    if (notesListAdapter == null) {
-                        notesListAdapter = new Adapter(MainActivity.this,notes);
+                    if (notesListAdapter == null)
+                    {
+                        notesListAdapter = new Adapter(MainActivity.this, notes);
                         recyclerView.setAdapter(notesListAdapter);
 
-                    } else notesListAdapter.addTasks(notes);
-                } else updateEmptyView();
+                    }
+                    else
+                    {
+                        notesListAdapter.addTasks(notes);
+                    }
+                }
+                else
+                {
+                    updateEmptyView();
+                }
 
             }
 
@@ -359,28 +396,38 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    private void updateEmptyView() {
+    private void updateEmptyView()
+    {
         // recyclerView.setVisibility(View.GONE);
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == ACTIVITY_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+        if (requestCode == ACTIVITY_REQUEST_CODE && resultCode == Activity.RESULT_OK)
+        {
 
-            if (data.hasExtra(INTENT_TASK)) {
-                if (data.hasExtra(INTENT_DELETE)) {
+            if (data.hasExtra(INTENT_TASK))
+            {
+                if (data.hasExtra(INTENT_DELETE))
+                {
                     noteRepository.deleteTask((Note) data.getSerializableExtra(INTENT_TASK));
 
-                } else {
+                }
+                else
+                {
                     noteRepository.updateTask((Note) data.getSerializableExtra(INTENT_TASK));
                 }
-            } else {
+            }
+            else
+            {
                 String title = data.getStringExtra(INTENT_TITLE);
                 String desc = data.getStringExtra(INTENT_DESC);
                 String pwd = data.getStringExtra(INTENT_PWD);
+                String image = data.getStringExtra(INTENT_IMAGE);
                 boolean encrypt = data.getBooleanExtra(INTENT_ENCRYPT, false);
-                noteRepository.insertTask(title, desc, encrypt, pwd);
+                noteRepository.insertTask(title, desc, encrypt, pwd, image);
             }
             updateTaskList();
         }
@@ -389,9 +436,11 @@ public class MainActivity extends AppCompatActivity
 
 
     @Override
-    public void onItemClick(View parentView, View childView, int position) {
+    public void onItemClick(View parentView, View childView, int position)
+    {
         final Note note = notesListAdapter.getItem(position);
-        if (note.isEncrypt()) {
+        if (note.isEncrypt())
+        {
 
             // get pwd.xml view
             LayoutInflater li = LayoutInflater.from(context);
@@ -404,15 +453,19 @@ public class MainActivity extends AppCompatActivity
             alertDialogBuilder.setView(view);
 
             final ImageView img_showPass = view.findViewById(R.id.img_showPass);
-            final EditText userInput =view.findViewById(R.id.edit_pwd);
+            final EditText userInput = view.findViewById(R.id.edit_pwd);
             img_showPass.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View view) {
-                    if(!pwdVisible) {
+                public void onClick(View view)
+                {
+                    if (!pwdVisible)
+                    {
                         pwdVisible = Boolean.TRUE;
                         userInput.setTransformationMethod(null);
                         img_showPass.setImageResource(R.drawable.ic_visibility_off);
-                    } else {
+                    }
+                    else
+                    {
                         pwdVisible = Boolean.FALSE;
                         userInput.setTransformationMethod(new PasswordTransformationMethod());
                         img_showPass.setImageResource(R.drawable.ic_visibility);
@@ -426,35 +479,43 @@ public class MainActivity extends AppCompatActivity
                     .setCancelable(false)
                     .setPositiveButton("تایید",
                             new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
+                                {
+                                }
+
+                                public void onClick(DialogInterface dialog, int id)
+                                {
                                     //Evaluate the password
-                                    if ( note.getPassword().equals(AppUtils.generateHash(userInput.getText().toString()))) {
+                                    if (note.getPassword().equals(AppUtils.generateHash(userInput.getText().toString())))
+                                    {
 
                                         NavigatorUtils.redirectToViewNoteScreen(MainActivity.this, note);
 
-                                    } else
+                                    }
+                                    else
+                                    {
                                         AppUtils.showMessage(getApplicationContext(), getString(R.string.error_pwd));
+                                    }
                                 }
-                                {
-                            }
-        })
+                            })
                     .setNegativeButton("انصراف",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-        // create alert dialog
-        AlertDialog alertDialog = alertDialogBuilder.create();
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id)
+                                {
+                                    dialog.cancel();
+                                }
+                            });
+            // create alert dialog
+            AlertDialog alertDialog = alertDialogBuilder.create();
 
-        // show it
-        alertDialog.show();
+            // show it
+            alertDialog.show();
 
-    } else
+        }
+        else
 
-    {
-        NavigatorUtils.redirectToEditTaskScreen(this, note);
+        {
+            NavigatorUtils.redirectToEditTaskScreen(this, note);
+        }
     }
-}
 
 }

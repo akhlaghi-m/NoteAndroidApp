@@ -1,12 +1,12 @@
 package roid.berlin.memoapp.android.co.Utils;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.os.AsyncTask;
 
 import java.util.List;
 
+import androidx.lifecycle.LiveData;
+import androidx.room.Room;
 import roid.berlin.memoapp.android.co.Database.Note;
 import roid.berlin.memoapp.android.co.Database.NoteDatabase;
 
@@ -16,20 +16,24 @@ public class NoteRepository {
 
     private NoteDatabase noteDatabase;
 
-    public NoteRepository(Context context) {
+    public NoteRepository(Context context)
+    {
         noteDatabase = Room.databaseBuilder(context, NoteDatabase.class, DB_NAME).build();
     }
 
     public void insertTask(String title,
-                           String description) {
+                           String description)
+    {
 
-        insertTask(title, description, false, null);
+        insertTask(title, description, false, null, null);
     }
 
     public void insertTask(String title,
                            String description,
                            boolean encrypt,
-                           String password) {
+                           String password,
+                           String imagePath)
+    {
 
         Note note = new Note();
         note.setTitle(title);
@@ -37,43 +41,56 @@ public class NoteRepository {
         note.setCreatedAt(AppUtils.getCurrentDateTime());
         note.setModifiedAt(AppUtils.getCurrentDateTime());
         note.setEncrypt(encrypt);
+        note.setImagePath(imagePath);
 
 
-        if (encrypt) {
+        if (encrypt)
+        {
             note.setPassword(AppUtils.generateHash(password));
-        } else note.setPassword(null);
+        }
+        else
+        {
+            note.setPassword(null);
+        }
 
         insertTask(note);
     }
 
-    public void insertTask(final Note note) {
+    public void insertTask(final Note note)
+    {
         new AsyncTask<Void, Void, Void>() {
             @Override
-            protected Void doInBackground(Void... voids) {
+            protected Void doInBackground(Void... voids)
+            {
                 noteDatabase.daoAccess().insertTask(note);
                 return null;
             }
         }.execute();
     }
 
-    public void updateTask(final Note note) {
+    public void updateTask(final Note note)
+    {
         note.setModifiedAt(AppUtils.getCurrentDateTime());
 
         new AsyncTask<Void, Void, Void>() {
             @Override
-            protected Void doInBackground(Void... voids) {
+            protected Void doInBackground(Void... voids)
+            {
                 noteDatabase.daoAccess().updateTask(note);
                 return null;
             }
         }.execute();
     }
 
-    public void deleteTask(final int id) {
+    public void deleteTask(final int id)
+    {
         final LiveData<Note> task = getTask(id);
-        if (task != null) {
+        if (task != null)
+        {
             new AsyncTask<Void, Void, Void>() {
                 @Override
-                protected Void doInBackground(Void... voids) {
+                protected Void doInBackground(Void... voids)
+                {
                     noteDatabase.daoAccess().deleteTask(task.getValue());
                     return null;
                 }
@@ -81,10 +98,12 @@ public class NoteRepository {
         }
     }
 
-    public void deleteTask(final Note note) {
+    public void deleteTask(final Note note)
+    {
         new AsyncTask<Void, Void, Void>() {
             @Override
-            protected Void doInBackground(Void... voids) {
+            protected Void doInBackground(Void... voids)
+            {
                 noteDatabase.daoAccess().deleteTask(note);
                 return null;
             }
@@ -92,11 +111,13 @@ public class NoteRepository {
     }
 
 
-    public LiveData<Note> getTask(int id) {
+    public LiveData<Note> getTask(int id)
+    {
         return noteDatabase.daoAccess().getTask(id);
     }
 
-    public LiveData<List<Note>> getTasks() {
+    public LiveData<List<Note>> getTasks()
+    {
         return noteDatabase.daoAccess().fetchAllTasks();
     }
 

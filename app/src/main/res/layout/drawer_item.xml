@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/item"
     android:layout_width="match_parent"
     android:layout_height="48dp"
-    android:clickable="true"
     android:background="@drawable/ripple_rect"
-    >
+    android:clickable="true">
 
 
     <TextView
@@ -14,24 +12,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:textSize="14sp"
-        android:layout_toLeftOf="@+id/icon"
-        android:layout_toStartOf="@+id/icon"
-        android:layout_marginRight="16dp"
         android:layout_marginEnd="16dp"
-        android:textColor="@color/grey_90"/>
+        android:layout_marginRight="16dp"
+        android:layout_toStartOf="@+id/icon"
+        android:layout_toLeftOf="@+id/icon"
+        android:textColor="@color/grey_90"
+        android:textSize="14sp" />
 
 
     <ImageView
         android:id="@+id/icon"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:contentDescription="@string/menu"
-        android:scaleType="center"
-        android:layout_marginLeft="16dp" />
+        android:scaleType="center" />
 </RelativeLayout>

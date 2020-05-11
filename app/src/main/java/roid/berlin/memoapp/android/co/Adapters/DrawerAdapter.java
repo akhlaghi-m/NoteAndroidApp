@@ -20,13 +20,15 @@ public class DrawerAdapter extends BaseAdapter {
     private ClickListener listener;
     private Drawer[] drawers;
 
-    public DrawerAdapter(Context context, ClickListener listener) {
+    public DrawerAdapter(Context context, ClickListener listener)
+    {
         this.context = context;
         this.listener = listener;
         populate();
     }
 
-    private void populate() {
+    private void populate()
+    {
         drawers = new Drawer[LENGTH];
 
         int counter = -1;
@@ -53,62 +55,73 @@ public class DrawerAdapter extends BaseAdapter {
     }
 
     @Override
-    public int getCount() {
+    public int getCount()
+    {
         return LENGTH;
     }
 
     @Override
-    public Drawer getItem(int i) {
+    public Drawer getItem(int i)
+    {
         return drawers[i];
     }
 
     @Override
-    public long getItemId(int i) {
+    public long getItemId(int i)
+    {
         return i;
     }
 
     @Override
-    public int getViewTypeCount() {
+    public int getViewTypeCount()
+    {
         return 2;
     }
 
     @Override
-    public int getItemViewType(int position) {
+    public int getItemViewType(int position)
+    {
         return drawers[position].type > 0 ? 1 : 0;
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent)
+    {
         final Drawer drawer = getItem(position);
         ViewHolder holder = null;
 
-        if (convertView == null) {
+        if (convertView == null)
+        {
             LayoutInflater inflator = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
 
-            switch (drawer.type) {
+            switch (drawer.type)
+            {
                 case Drawer.TYPE_SPLITTER:
                     convertView = inflator.inflate(R.layout.drawer_separator, parent, false);
                     break;
                 default:
                     convertView = inflator.inflate(R.layout.drawer_item, parent, false);
                     holder = new ViewHolder();
-                    holder.icon = (ImageView) convertView.findViewById(R.id.icon);
-                    holder.title = (TextView) convertView.findViewById(R.id.title);
+                    holder.icon = convertView.findViewById(R.id.icon);
+                    holder.title = convertView.findViewById(R.id.title);
                     holder.item = convertView.findViewById(R.id.item);
                     convertView.setTag(holder);
                     break;
             }
         }
 
-        if (drawer.type > 0) {
-            if (holder == null) {
+        if (drawer.type > 0)
+        {
+            if (holder == null)
+            {
                 holder = (ViewHolder) convertView.getTag();
             }
 
             holder.title.setText(drawer.title);
             holder.item.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View view) {
+                public void onClick(View view)
+                {
                     listener.onClick(drawer.type);
                 }
             });
@@ -119,17 +132,18 @@ public class DrawerAdapter extends BaseAdapter {
     }
 
     @Override
-    public boolean isEnabled(int position) {
+    public boolean isEnabled(int position)
+    {
         return drawers[position].type > 1;
+    }
+
+    public interface ClickListener {
+        void onClick(int type);
     }
 
     private class ViewHolder {
         public View item;
         public TextView title;
         public ImageView icon;
-    }
-
-    public interface ClickListener {
-        void onClick(int type);
     }
 }

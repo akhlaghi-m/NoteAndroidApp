@@ -1,8 +1,8 @@
 package roid.berlin.memoapp.android.co.Drawer;
 
 
-import android.support.annotation.DrawableRes;
-import android.support.annotation.StringRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.StringRes;
 
 public class Drawer {
     public static final int TYPE_SPLITTER = 0;
@@ -17,15 +17,19 @@ public class Drawer {
     @StringRes
     public int title;
 
-    public Drawer() {}
+    public Drawer()
+    {
+    }
 
-    public Drawer(int type, @DrawableRes int resId, @StringRes int title) {
+    public Drawer(int type, @DrawableRes int resId, @StringRes int title)
+    {
         this.type = type;
         this.resId = resId;
         this.title = title;
     }
 
-    public static Drawer divider() {
+    public static Drawer divider()
+    {
         Drawer splitter = new Drawer();
         splitter.type = TYPE_SPLITTER;
         return splitter;

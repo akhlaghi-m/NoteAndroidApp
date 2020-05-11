@@ -11,32 +11,38 @@ import android.view.animation.Transformation;
 
 public class ViewAnimation {
 
-    public static void expand(final View v, final AnimListener animListener) {
+    public static void expand(final View v, final AnimListener animListener)
+    {
         Animation a = expandAction(v);
         a.setAnimationListener(new Animation.AnimationListener() {
             @Override
-            public void onAnimationStart(Animation animation) {
+            public void onAnimationStart(Animation animation)
+            {
             }
 
             @Override
-            public void onAnimationEnd(Animation animation) {
+            public void onAnimationEnd(Animation animation)
+            {
                 animListener.onFinish();
             }
 
             @Override
-            public void onAnimationRepeat(Animation animation) {
+            public void onAnimationRepeat(Animation animation)
+            {
 
             }
         });
         v.startAnimation(a);
     }
 
-    public static void expand(final View v) {
+    public static void expand(final View v)
+    {
         Animation a = expandAction(v);
         v.startAnimation(a);
     }
 
-    private static Animation expandAction(final View v) {
+    private static Animation expandAction(final View v)
+    {
         v.measure(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         final int targtetHeight = v.getMeasuredHeight();
 
@@ -44,7 +50,8 @@ public class ViewAnimation {
         v.setVisibility(View.VISIBLE);
         Animation a = new Animation() {
             @Override
-            protected void applyTransformation(float interpolatedTime, Transformation t) {
+            protected void applyTransformation(float interpolatedTime, Transformation t)
+            {
                 v.getLayoutParams().height = interpolatedTime == 1
                         ? ViewGroup.LayoutParams.WRAP_CONTENT
                         : (int) (targtetHeight * interpolatedTime);
@@ -52,7 +59,8 @@ public class ViewAnimation {
             }
 
             @Override
-            public boolean willChangeBounds() {
+            public boolean willChangeBounds()
+            {
                 return true;
             }
         };
@@ -62,22 +70,28 @@ public class ViewAnimation {
         return a;
     }
 
-    public static void collapse(final View v) {
+    public static void collapse(final View v)
+    {
         final int initialHeight = v.getMeasuredHeight();
 
         Animation a = new Animation() {
             @Override
-            protected void applyTransformation(float interpolatedTime, Transformation t) {
-                if (interpolatedTime == 1) {
+            protected void applyTransformation(float interpolatedTime, Transformation t)
+            {
+                if (interpolatedTime == 1)
+                {
                     v.setVisibility(View.GONE);
-                } else {
+                }
+                else
+                {
                     v.getLayoutParams().height = initialHeight - (int) (initialHeight * interpolatedTime);
                     v.requestLayout();
                 }
             }
 
             @Override
-            public boolean willChangeBounds() {
+            public boolean willChangeBounds()
+            {
                 return true;
             }
         };
@@ -86,7 +100,8 @@ public class ViewAnimation {
         v.startAnimation(a);
     }
 
-    public static void flyInDown(final View v, final AnimListener animListener) {
+    public static void flyInDown(final View v, final AnimListener animListener)
+    {
         v.setVisibility(View.VISIBLE);
         v.setAlpha(0.0f);
         v.setTranslationY(0);
@@ -97,8 +112,12 @@ public class ViewAnimation {
                 .translationY(0)
                 .setListener(new AnimatorListenerAdapter() {
                     @Override
-                    public void onAnimationEnd(Animator animation) {
-                        if (animListener != null) animListener.onFinish();
+                    public void onAnimationEnd(Animator animation)
+                    {
+                        if (animListener != null)
+                        {
+                            animListener.onFinish();
+                        }
                         super.onAnimationEnd(animation);
                     }
                 })
@@ -106,7 +125,8 @@ public class ViewAnimation {
                 .start();
     }
 
-    public static void flyOutDown(final View v, final AnimListener animListener) {
+    public static void flyOutDown(final View v, final AnimListener animListener)
+    {
         v.setVisibility(View.VISIBLE);
         v.setAlpha(1.0f);
         v.setTranslationY(0);
@@ -116,8 +136,12 @@ public class ViewAnimation {
                 .translationY(v.getHeight())
                 .setListener(new AnimatorListenerAdapter() {
                     @Override
-                    public void onAnimationEnd(Animator animation) {
-                        if (animListener != null) animListener.onFinish();
+                    public void onAnimationEnd(Animator animation)
+                    {
+                        if (animListener != null)
+                        {
+                            animListener.onFinish();
+                        }
                         super.onAnimationEnd(animation);
                     }
                 })
@@ -125,11 +149,13 @@ public class ViewAnimation {
                 .start();
     }
 
-    public static void fadeIn(final View v) {
+    public static void fadeIn(final View v)
+    {
         ViewAnimation.fadeIn(v, null);
     }
 
-    public static void fadeIn(final View v, final AnimListener animListener) {
+    public static void fadeIn(final View v, final AnimListener animListener)
+    {
         v.setVisibility(View.GONE);
         v.setAlpha(0.0f);
         // Prepare the View for the animation
@@ -137,35 +163,46 @@ public class ViewAnimation {
                 .setDuration(200)
                 .setListener(new AnimatorListenerAdapter() {
                     @Override
-                    public void onAnimationEnd(Animator animation) {
+                    public void onAnimationEnd(Animator animation)
+                    {
                         v.setVisibility(View.VISIBLE);
-                        if (animListener != null) animListener.onFinish();
+                        if (animListener != null)
+                        {
+                            animListener.onFinish();
+                        }
                         super.onAnimationEnd(animation);
                     }
                 })
                 .alpha(1.0f);
     }
 
-    public static void fadeOut(final View v) {
+    public static void fadeOut(final View v)
+    {
         ViewAnimation.fadeOut(v, null);
     }
 
-    public static void fadeOut(final View v, final AnimListener animListener) {
+    public static void fadeOut(final View v, final AnimListener animListener)
+    {
         v.setAlpha(1.0f);
         // Prepare the View for the animation
         v.animate()
                 .setDuration(500)
                 .setListener(new AnimatorListenerAdapter() {
                     @Override
-                    public void onAnimationEnd(Animator animation) {
-                        if (animListener != null) animListener.onFinish();
+                    public void onAnimationEnd(Animator animation)
+                    {
+                        if (animListener != null)
+                        {
+                            animListener.onFinish();
+                        }
                         super.onAnimationEnd(animation);
                     }
                 })
                 .alpha(0.0f);
     }
 
-    public static void showIn(final View v) {
+    public static void showIn(final View v)
+    {
         v.setVisibility(View.VISIBLE);
         v.setAlpha(0f);
         v.setTranslationY(v.getHeight());
@@ -174,7 +211,8 @@ public class ViewAnimation {
                 .translationY(0)
                 .setListener(new AnimatorListenerAdapter() {
                     @Override
-                    public void onAnimationEnd(Animator animation) {
+                    public void onAnimationEnd(Animator animation)
+                    {
                         super.onAnimationEnd(animation);
                     }
                 })
@@ -182,13 +220,15 @@ public class ViewAnimation {
                 .start();
     }
 
-    public static void initShowOut(final View v) {
+    public static void initShowOut(final View v)
+    {
         v.setVisibility(View.GONE);
         v.setTranslationY(v.getHeight());
         v.setAlpha(0f);
     }
 
-    public static void showOut(final View v) {
+    public static void showOut(final View v)
+    {
         v.setVisibility(View.VISIBLE);
         v.setAlpha(1f);
         v.setTranslationY(0);
@@ -197,7 +237,8 @@ public class ViewAnimation {
                 .translationY(v.getHeight())
                 .setListener(new AnimatorListenerAdapter() {
                     @Override
-                    public void onAnimationEnd(Animator animation) {
+                    public void onAnimationEnd(Animator animation)
+                    {
                         v.setVisibility(View.GONE);
                         super.onAnimationEnd(animation);
                     }
@@ -205,11 +246,13 @@ public class ViewAnimation {
                 .start();
     }
 
-    public static boolean rotateFab(final View v, boolean rotate) {
+    public static boolean rotateFab(final View v, boolean rotate)
+    {
         v.animate().setDuration(200)
                 .setListener(new AnimatorListenerAdapter() {
                     @Override
-                    public void onAnimationEnd(Animator animation) {
+                    public void onAnimationEnd(Animator animation)
+                    {
                         super.onAnimationEnd(animation);
                     }
                 })
@@ -217,12 +260,8 @@ public class ViewAnimation {
         return rotate;
     }
 
-
-    public interface AnimListener {
-        void onFinish();
-    }
-
-    public static void fadeOutIn(View view) {
+    public static void fadeOutIn(View view)
+    {
         view.setAlpha(0.f);
         AnimatorSet animatorSet = new AnimatorSet();
         ObjectAnimator animatorAlpha = ObjectAnimator.ofFloat(view, "alpha", 0.f, 0.5f, 1.f);
@@ -232,46 +271,58 @@ public class ViewAnimation {
         animatorSet.start();
     }
 
-
-    public static void showScale(final View v) {
+    public static void showScale(final View v)
+    {
         ViewAnimation.showScale(v, null);
     }
 
-    public static void showScale(final View v, final AnimListener animListener) {
+    public static void showScale(final View v, final AnimListener animListener)
+    {
         v.animate()
                 .scaleY(1)
                 .scaleX(1)
                 .setDuration(200)
                 .setListener(new AnimatorListenerAdapter() {
                     @Override
-                    public void onAnimationEnd(Animator animation) {
-                        if (animListener != null) animListener.onFinish();
+                    public void onAnimationEnd(Animator animation)
+                    {
+                        if (animListener != null)
+                        {
+                            animListener.onFinish();
+                        }
                         super.onAnimationEnd(animation);
                     }
                 })
                 .start();
     }
 
-    public static void hideScale(final View v) {
+    public static void hideScale(final View v)
+    {
         ViewAnimation.fadeOut(v, null);
     }
 
-    public static void hideScale(final View v, final AnimListener animListener) {
+    public static void hideScale(final View v, final AnimListener animListener)
+    {
         v.animate()
                 .scaleY(0)
                 .scaleX(0)
                 .setDuration(200)
                 .setListener(new AnimatorListenerAdapter() {
                     @Override
-                    public void onAnimationEnd(Animator animation) {
-                        if (animListener != null) animListener.onFinish();
+                    public void onAnimationEnd(Animator animation)
+                    {
+                        if (animListener != null)
+                        {
+                            animListener.onFinish();
+                        }
                         super.onAnimationEnd(animation);
                     }
                 })
                 .start();
     }
 
-    public static void hideFab(View fab) {
+    public static void hideFab(View fab)
+    {
         int moveY = 2 * fab.getHeight();
         fab.animate()
                 .translationY(moveY)
@@ -279,11 +330,16 @@ public class ViewAnimation {
                 .start();
     }
 
-    public static void showFab(View fab) {
+    public static void showFab(View fab)
+    {
         fab.animate()
                 .translationY(0)
                 .setDuration(300)
                 .start();
+    }
+
+    public interface AnimListener {
+        void onFinish();
     }
 }
 

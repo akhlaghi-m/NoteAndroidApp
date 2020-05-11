@@ -11,25 +11,25 @@ import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.os.SystemClock;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.content.WakefulBroadcastReceiver;
 
 import java.util.Calendar;
 
+import androidx.core.app.NotificationCompat;
+import androidx.legacy.content.WakefulBroadcastReceiver;
 import roid.berlin.memoapp.android.co.Activitys.ReminderEditActivity;
-import roid.berlin.memoapp.android.co.SQLDatabaseReminder.ReminderDatabase;
 import roid.berlin.memoapp.android.co.Model.Reminder;
 import roid.berlin.memoapp.android.co.R;
+import roid.berlin.memoapp.android.co.SQLDatabaseReminder.ReminderDatabase;
 
 public class AlarmReceiver extends WakefulBroadcastReceiver {
 
     AlarmManager mAlarmManager;
     PendingIntent mPendingIntent;
+
     @Override
-    public void onReceive(Context context, Intent intent) {
+    public void onReceive(Context context, Intent intent)
+    {
         int mReceivedID = Integer.parseInt(intent.getStringExtra(ReminderEditActivity.EXTRA_REMINDER_ID));
-
-
 
 
         // Get notification title from Reminder Database
@@ -58,7 +58,8 @@ public class AlarmReceiver extends WakefulBroadcastReceiver {
         nManager.notify(mReceivedID, mBuilder.build());
     }
 
-    public void setAlarm(Context context, Calendar calendar, int ID) {
+    public void setAlarm(Context context, Calendar calendar, int ID)
+    {
         mAlarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
         // Put Reminder ID in Intent Extra
@@ -84,7 +85,8 @@ public class AlarmReceiver extends WakefulBroadcastReceiver {
                 PackageManager.DONT_KILL_APP);
     }
 
-    public void setRepeatAlarm(Context context, Calendar calendar, int ID, long RepeatTime) {
+    public void setRepeatAlarm(Context context, Calendar calendar, int ID, long RepeatTime)
+    {
         mAlarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
         // Put Reminder ID in Intent Extra
@@ -100,7 +102,7 @@ public class AlarmReceiver extends WakefulBroadcastReceiver {
         // Start alarm using initial notification time and repeat interval time
         mAlarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME,
                 SystemClock.elapsedRealtime() + diffTime,
-                RepeatTime , mPendingIntent);
+                RepeatTime, mPendingIntent);
 
         // Restart alarm if device is rebooted
         ComponentName receiver = new ComponentName(context, BootReceiver.class);
@@ -110,7 +112,8 @@ public class AlarmReceiver extends WakefulBroadcastReceiver {
                 PackageManager.DONT_KILL_APP);
     }
 
-    public void cancelAlarm(Context context, int ID) {
+    public void cancelAlarm(Context context, int ID)
+    {
         mAlarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
         // Cancel Alarm using Reminder ID
@@ -123,11 +126,6 @@ public class AlarmReceiver extends WakefulBroadcastReceiver {
         pm.setComponentEnabledSetting(receiver,
                 PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
                 PackageManager.DONT_KILL_APP);
-
-
-
-
-
 
 
     }

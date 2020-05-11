@@ -7,35 +7,43 @@ public class NoteItems {
     private int uImage;
     private int uImageVoice;
 
-    public String getuTitle() {
+    public String getuTitle()
+    {
         return uTitle;
     }
 
-    public void setuTitle(String uTitle) {
+    public void setuTitle(String uTitle)
+    {
         this.uTitle = uTitle;
     }
 
-    public String getuDescription() {
+    public String getuDescription()
+    {
         return uDescription;
     }
 
-    public void setuDescription(String uDescription) {
+    public void setuDescription(String uDescription)
+    {
         this.uDescription = uDescription;
     }
 
-    public int getuImage() {
+    public int getuImage()
+    {
         return uImage;
     }
 
-    public void setuImage(int uImage) {
+    public void setuImage(int uImage)
+    {
         this.uImage = uImage;
     }
 
-    public int getuImageVoice() {
+    public int getuImageVoice()
+    {
         return uImageVoice;
     }
 
-    public void setuImageVoice(int uImageVoice) {
+    public void setuImageVoice(int uImageVoice)
+    {
         this.uImageVoice = uImageVoice;
     }
 }

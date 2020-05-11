@@ -6,27 +6,34 @@ public class DateTimeSorter {
     public String mDateTime;
 
 
-    public DateTimeSorter(int index, String DateTime){
+    public DateTimeSorter(int index, String DateTime)
+    {
         mIndex = index;
         mDateTime = DateTime;
     }
 
-    public DateTimeSorter(){}
+    public DateTimeSorter()
+    {
+    }
 
 
-    public int getIndex() {
+    public int getIndex()
+    {
         return mIndex;
     }
 
-    public void setIndex(int index) {
+    public void setIndex(int index)
+    {
         mIndex = index;
     }
 
-    public String getDateTime() {
+    public String getDateTime()
+    {
         return mDateTime;
     }
 
-    public void setDateTime(String dateTime) {
+    public void setDateTime(String dateTime)
+    {
         mDateTime = dateTime;
     }
 }

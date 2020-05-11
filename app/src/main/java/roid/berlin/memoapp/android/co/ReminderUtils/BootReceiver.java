@@ -8,11 +8,17 @@ import android.content.Intent;
 import java.util.Calendar;
 import java.util.List;
 
-import roid.berlin.memoapp.android.co.SQLDatabaseReminder.ReminderDatabase;
 import roid.berlin.memoapp.android.co.Model.Reminder;
+import roid.berlin.memoapp.android.co.SQLDatabaseReminder.ReminderDatabase;
 
 public class BootReceiver extends BroadcastReceiver {
 
+    // Constant values in milliseconds
+    private static final long milMinute = 60000L;
+    private static final long milHour = 3600000L;
+    private static final long milDay = 86400000L;
+    private static final long milWeek = 604800000L;
+    private static final long milMonth = 2592000000L;
     private String mTitle;
     private String mTime;
     private String mDate;
@@ -24,21 +30,14 @@ public class BootReceiver extends BroadcastReceiver {
     private String[] mTimeSplit;
     private int mYear, mMonth, mHour, mMinute, mDay, mReceivedID;
     private long mRepeatTime;
-
     private Calendar mCalendar;
     private AlarmReceiver mAlarmReceiver;
 
-    // Constant values in milliseconds
-    private static final long milMinute = 60000L;
-    private static final long milHour = 3600000L;
-    private static final long milDay = 86400000L;
-    private static final long milWeek = 604800000L;
-    private static final long milMonth = 2592000000L;
-
-
     @Override
-    public void onReceive(Context context, Intent intent) {
-        if (intent.getAction().equals("android.intent.action.BOOT_COMPLETED")) {
+    public void onReceive(Context context, Intent intent)
+    {
+        if (intent.getAction().equals("android.intent.action.BOOT_COMPLETED"))
+        {
 
             ReminderDatabase rb = new ReminderDatabase(context);
             mCalendar = Calendar.getInstance();
@@ -46,7 +45,8 @@ public class BootReceiver extends BroadcastReceiver {
 
             List<Reminder> reminders = rb.getAllReminders();
 
-            for (Reminder rm : reminders) {
+            for (Reminder rm : reminders)
+            {
                 mReceivedID = rm.getID();
                 mRepeat = rm.getRepeat();
                 mRepeatNo = rm.getRepeatNo();
@@ -75,23 +75,36 @@ public class BootReceiver extends BroadcastReceiver {
                 // mAlarmReceiver.cancelAlarm(context, mReceivedID);
 
                 // Check repeat type
-                if (mRepeatType.equals("Minute")) {
+                if (mRepeatType.equals("Minute"))
+                {
                     mRepeatTime = Integer.parseInt(mRepeatNo) * milMinute;
-                } else if (mRepeatType.equals("Hour")) {
+                }
+                else if (mRepeatType.equals("Hour"))
+                {
                     mRepeatTime = Integer.parseInt(mRepeatNo) * milHour;
-                } else if (mRepeatType.equals("Day")) {
+                }
+                else if (mRepeatType.equals("Day"))
+                {
                     mRepeatTime = Integer.parseInt(mRepeatNo) * milDay;
-                } else if (mRepeatType.equals("Week")) {
+                }
+                else if (mRepeatType.equals("Week"))
+                {
                     mRepeatTime = Integer.parseInt(mRepeatNo) * milWeek;
-                } else if (mRepeatType.equals("Month")) {
+                }
+                else if (mRepeatType.equals("Month"))
+                {
                     mRepeatTime = Integer.parseInt(mRepeatNo) * milMonth;
                 }
 
                 // Create a new notification
-                if (mActive.equals("true")) {
-                    if (mRepeat.equals("true")) {
+                if (mActive.equals("true"))
+                {
+                    if (mRepeat.equals("true"))
+                    {
                         mAlarmReceiver.setRepeatAlarm(context, mCalendar, mReceivedID, mRepeatTime);
-                    } else if (mRepeat.equals("false")) {
+                    }
+                    else if (mRepeat.equals("false"))
+                    {
                         mAlarmReceiver.setAlarm(context, mCalendar, mReceivedID);
                     }
                 }

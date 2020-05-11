@@ -1,45 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
 
-
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/CardView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardElevation="10dp"
-        app:cardCornerRadius="4dp"
-        android:layout_marginTop="8dp"
         android:layout_marginLeft="4dp"
+        android:layout_marginTop="8dp"
         android:layout_marginRight="4dp"
         android:clickable="true"
-        android:focusable="true">
+        android:focusable="true"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="10dp">
 
 
         <RelativeLayout
             android:id="@+id/Item_Layout"
             android:layout_width="wrap_content"
             android:layout_height="110dp"
-            android:focusable="true"
             android:clickable="true"
+            android:focusable="true"
             android:foreground="?attr/selectableItemBackgroundBorderless">
 
 
-
-
-
-            <ImageView android:layout_width="wrap_content"
-                android:layout_alignParentLeft="true"
+            <ImageView
+                android:id="@+id/active_image"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:src="@drawable/ic_notifications"
-                android:layout_centerVertical="true"
-                android:id="@+id/active_image"/>
+                android:src="@drawable/ic_notifications" />
 
 
             <LinearLayout
@@ -48,55 +45,52 @@
                 android:layout_centerVertical="true"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="4dp"
-                android:layout_toRightOf="@id/active_image"
                 android:layout_toLeftOf="@+id/thumbnail_image"
-                android:orientation="vertical"
-                >
+                android:layout_toRightOf="@id/active_image"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/recycle_title"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:maxLines="2"
-                    android:layout_height="wrap_content"
-                    tools:text="Title"
                     android:textSize="16dp"
-                    />
+                    tools:text="Title" />
 
                 <TextView
                     android:id="@+id/recycle_date_time"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:ellipsize="marquee"
                     android:singleLine="true"
-                    android:layout_height="wrap_content"
                     android:textSize="13dp"
-                    tools:text="Date and Time"
-                    />
+                    tools:text="Date and Time" />
 
                 <TextView
                     android:id="@+id/recycle_repeat_info"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:ellipsize="marquee"
                     android:singleLine="true"
-                    android:layout_height="wrap_content"
                     android:textSize="13dp"
-                    tools:text="Repeat No and Type"/>
+                    tools:text="Repeat No and Type" />
 
             </LinearLayout>
 
 
-            <ImageView android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_centerVertical="true"
+            <ImageView
                 android:id="@+id/thumbnail_image"
-                android:layout_alignParentRight="true"/>
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp" />
 
         </RelativeLayout>
 
-    </android.support.v7.widget.CardView>
-
+    </androidx.cardview.widget.CardView>
 
 
 </RelativeLayout>

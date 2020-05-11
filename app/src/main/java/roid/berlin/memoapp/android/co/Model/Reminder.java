@@ -1,7 +1,6 @@
 package roid.berlin.memoapp.android.co.Model;
 
 
-
 // Reminder class
 public class Reminder {
     private int mID;
@@ -14,7 +13,8 @@ public class Reminder {
     private String mActive;
 
 
-    public Reminder(int ID, String Title, String Date, String Time, String Repeat, String RepeatNo, String RepeatType, String Active){
+    public Reminder(int ID, String Title, String Date, String Time, String Repeat, String RepeatNo, String RepeatType, String Active)
+    {
         mID = ID;
         mTitle = Title;
         mDate = Date;
@@ -25,7 +25,8 @@ public class Reminder {
         mActive = Active;
     }
 
-    public Reminder(String Title, String Date, String Time, String Repeat, String RepeatNo, String RepeatType, String Active){
+    public Reminder(String Title, String Date, String Time, String Repeat, String RepeatNo, String RepeatType, String Active)
+    {
         mTitle = Title;
         mDate = Date;
         mTime = Time;
@@ -35,69 +36,87 @@ public class Reminder {
         mActive = Active;
     }
 
-    public Reminder(){}
+    public Reminder()
+    {
+    }
 
-    public int getID() {
+    public int getID()
+    {
         return mID;
     }
 
-    public void setID(int ID) {
+    public void setID(int ID)
+    {
         mID = ID;
     }
 
-    public String getTitle() {
+    public String getTitle()
+    {
         return mTitle;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(String title)
+    {
         mTitle = title;
     }
 
-    public String getDate() {
+    public String getDate()
+    {
         return mDate;
     }
 
-    public void setDate(String date) {
+    public void setDate(String date)
+    {
         mDate = date;
     }
 
-    public String getTime() {
+    public String getTime()
+    {
         return mTime;
     }
 
-    public void setTime(String time) {
+    public void setTime(String time)
+    {
         mTime = time;
     }
 
-    public String getRepeatType() {
+    public String getRepeatType()
+    {
         return mRepeatType;
     }
 
-    public void setRepeatType(String repeatType) {
+    public void setRepeatType(String repeatType)
+    {
         mRepeatType = repeatType;
     }
 
-    public String getRepeatNo() {
+    public String getRepeatNo()
+    {
         return mRepeatNo;
     }
 
-    public void setRepeatNo(String repeatNo) {
+    public void setRepeatNo(String repeatNo)
+    {
         mRepeatNo = repeatNo;
     }
 
-    public String getRepeat() {
+    public String getRepeat()
+    {
         return mRepeat;
     }
 
-    public void setRepeat(String repeat) {
+    public void setRepeat(String repeat)
+    {
         mRepeat = repeat;
     }
 
-    public String getActive() {
+    public String getActive()
+    {
         return mActive;
     }
 
-    public void setActive(String active) {
+    public void setActive(String active)
+    {
         mActive = active;
     }
 }

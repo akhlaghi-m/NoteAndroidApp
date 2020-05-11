@@ -3,13 +3,13 @@ package roid.berlin.memoapp.android.co.Other;
 
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 
-public abstract class RuntimePermissionsActivity extends AppCompatActivity
-{
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+public abstract class RuntimePermissionsActivity extends AppCompatActivity {
 
 
     @Override
@@ -57,6 +57,7 @@ public abstract class RuntimePermissionsActivity extends AppCompatActivity
     }
 
     public abstract void onPermissionsGranted(int requestCode);
+
     public abstract void onPermissionsDeny(int requestCode);
 
 }

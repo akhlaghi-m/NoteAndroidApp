@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,15 +8,14 @@
 
     <include
         android:id="@+id/noteActivity_add_bar"
-        layout="@layout/toolbar_pin_activity"
-        />
+        layout="@layout/toolbar_pin_activity" />
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingLeft="50dp"
         android:paddingTop="100dp"
-      android:paddingLeft="50dp"
         android:paddingRight="50dp">
 
 
@@ -25,18 +23,18 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:text="Enter your pass code"
-           android:layout_centerHorizontal="true"
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/pin_activity_edPin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView"
-            android:paddingTop="40dp"
-            android:maxLength="4"
+            android:gravity="center"
             android:inputType="numberSigned"
-            android:gravity="center"/>
+            android:maxLength="4"
+            android:paddingTop="40dp" />
     </RelativeLayout>
 </RelativeLayout>

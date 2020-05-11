@@ -1,8 +1,6 @@
 package roid.berlin.memoapp.android.co.Activitys;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
@@ -13,13 +11,31 @@ import com.getbase.floatingactionbutton.FloatingActionButton;
 
 import java.util.Calendar;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import roid.berlin.memoapp.android.co.Model.Reminder;
 import roid.berlin.memoapp.android.co.R;
 import roid.berlin.memoapp.android.co.ReminderUtils.AlarmReceiver;
-import roid.berlin.memoapp.android.co.Model.Reminder;
 import roid.berlin.memoapp.android.co.SQLDatabaseReminder.ReminderDatabase;
 
 public class ReminderEditActivity extends AppCompatActivity {
 
+    // Constant Intent String
+    public static final String EXTRA_REMINDER_ID = "Reminder_ID";
+    // Values for orientation change
+    private static final String KEY_TITLE = "title_key";
+    private static final String KEY_TIME = "time_key";
+    private static final String KEY_DATE = "date_key";
+    private static final String KEY_REPEAT = "repeat_key";
+    private static final String KEY_REPEAT_NO = "repeat_no_key";
+    private static final String KEY_REPEAT_TYPE = "repeat_type_key";
+    private static final String KEY_ACTIVE = "active_key";
+    // Constant values in milliseconds
+    private static final long milMinute = 60000L;
+    private static final long milHour = 3600000L;
+    private static final long milDay = 86400000L;
+    private static final long milWeek = 604800000L;
+    private static final long milMonth = 2592000000L;
     Toolbar mToolbar;
     private EditText mTitleText;
     private TextView mDateText, mTimeText, mRepeatText, mRepeatNoText, mRepeatTypeText;
@@ -43,27 +59,9 @@ public class ReminderEditActivity extends AppCompatActivity {
     private ReminderDatabase rb;
     private AlarmReceiver mAlarmReceiver;
 
-    // Constant Intent String
-    public static final String EXTRA_REMINDER_ID = "Reminder_ID";
-
-    // Values for orientation change
-    private static final String KEY_TITLE = "title_key";
-    private static final String KEY_TIME = "time_key";
-    private static final String KEY_DATE = "date_key";
-    private static final String KEY_REPEAT = "repeat_key";
-    private static final String KEY_REPEAT_NO = "repeat_no_key";
-    private static final String KEY_REPEAT_TYPE = "repeat_type_key";
-    private static final String KEY_ACTIVE = "active_key";
-
-    // Constant values in milliseconds
-    private static final long milMinute = 60000L;
-    private static final long milHour = 3600000L;
-    private static final long milDay = 86400000L;
-    private static final long milWeek = 604800000L;
-    private static final long milMonth = 2592000000L;
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_reminder);
 
@@ -88,17 +86,20 @@ public class ReminderEditActivity extends AppCompatActivity {
         // Setup Reminder Title EditText
         mTitleText.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after)
+            {
             }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            public void onTextChanged(CharSequence s, int start, int before, int count)
+            {
                 mTitle = s.toString().trim();
                 mTitleText.setError(null);
             }
 
             @Override
-            public void afterTextChanged(Editable s) {
+            public void afterTextChanged(Editable s)
+            {
             }
         });
 

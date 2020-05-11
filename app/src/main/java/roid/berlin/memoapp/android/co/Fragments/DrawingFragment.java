@@ -1,13 +1,12 @@
 package roid.berlin.memoapp.android.co.Fragments;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.fragment.app.Fragment;
 import roid.berlin.memoapp.android.co.R;
 
 /**
@@ -30,7 +29,8 @@ public class DrawingFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public DrawingFragment() {
+    public DrawingFragment()
+    {
         // Required empty public constructor
     }
 
@@ -43,7 +43,8 @@ public class DrawingFragment extends Fragment {
      * @return A new instance of fragment DrawingFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static DrawingFragment newInstance(String param1, String param2) {
+    public static DrawingFragment newInstance(String param1, String param2)
+    {
         DrawingFragment fragment = new DrawingFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
@@ -53,9 +54,11 @@ public class DrawingFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
+        if (getArguments() != null)
+        {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
@@ -63,14 +66,17 @@ public class DrawingFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState)
+    {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_drawing, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
+    public void onButtonPressed(Uri uri)
+    {
+        if (mListener != null)
+        {
             mListener.onFragmentInteraction(uri);
         }
     }
@@ -87,7 +93,8 @@ public class DrawingFragment extends Fragment {
 //    }
 
     @Override
-    public void onDetach() {
+    public void onDetach()
+    {
         super.onDetach();
         mListener = null;
     }
